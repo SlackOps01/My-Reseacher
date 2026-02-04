@@ -20,7 +20,7 @@ class BaseAgent:
             )
         )
 
-        return Agent(name=self.name, model=model, system_prompt=self.system_prompt, builtin_tools=tools or [])
+        return Agent(name=self.name, model=model, system_prompt=self.system_prompt, tools=tools or [])
 
     async def run(self, message: str):
         response = await self.agent.run(message)

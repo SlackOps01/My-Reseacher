@@ -1,4 +1,5 @@
 from pydantic_ai.builtin_tools import WebSearchTool
+from pydantic_ai.common_tools.duckduckgo import duckduckgo_search_tool
 from app.agents.base import SubAgent
 import pathlib
 
@@ -27,8 +28,9 @@ class ResearcherAgent(SubAgent):
             name="Researcher",
             model_name="qwen3:4b",
             system_prompt=self.system_prompt,
-            tools=[WebSearchTool()]
+            tools=[duckduckgo_search_tool()]
         )
+        
     
 class WriterAgent(SubAgent):
     with open(root_path / "prompts/writer.txt", "r") as f:
