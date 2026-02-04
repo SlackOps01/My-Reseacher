@@ -7,7 +7,7 @@ BillieJean is an advanced AI agent orchestration system built with FastAPI, Cele
 - **Multi-Agent Orchestration**: A hierarchical agent system with an Orchestrator managing specialized sub-agents.
 - **Asynchronous Task Processing**: Powered by Celery and Redis for robust background job handling.
 - **AI-Powered**: Utilizes Ollama and local LLMs (e.g., `qwen3:4b`, `lfm2.5`) via `pydantic-ai` for intelligent reasoning.
-- **Tool Use**: Agents are equipped with tools (like Web Search) to gather real-time information.
+- **Tool Use**: Agents are equipped with tools (like DuckDuckGo Search) to gather real-time information.
 - **Rate Limiting**: Integrated `slowapi` for API rate limiting.
 - **Structured Logging**: Rich console logging for better observability.
 
@@ -24,8 +24,8 @@ BillieJean is an advanced AI agent orchestration system built with FastAPI, Cele
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/BillieJean.git
-    cd BillieJean
+    git clone https://github.com/SlackOps01/My-Reseacher.git
+    cd My-Reseacher
     ```
 
 2. **Set up Virtual Environment**:
@@ -108,7 +108,7 @@ Checks the status and result of a task.
 ## 📂 Project Structure
 
 ```
-BillieJean/
+My-Reseacher/
 ├── app/
 │   ├── agents/          # Agent definitions (Manager, Specialized Agents)
 │   ├── core/            # Config, Logging, Limiter
