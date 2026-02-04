@@ -1,0 +1,13 @@
+fastapi[all]
+celery[redis]
+python-dotenv
+bcrypt==4.0.0
+passlib[bcrypt]
+python-jose[cryptography]
+uvicorn
+pydantic-ai
+redis
+sqlalchemy
+psycopg2-binary
+python-multipart
+slowapi
