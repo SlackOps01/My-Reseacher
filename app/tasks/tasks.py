@@ -18,5 +18,10 @@ celery.conf.update(
 manager = AgentManager()
 
 @celery.task
-def run_research(prompt: str):
-    return asyncio.run(manager.researcher.run(prompt))
+def run_agent():
+    return asyncio.run(manager.orchestrator.run())
+
+
+@celery.task
+def run_workflow(prompt: str):
+    return asyncio.run(manager.run(prompt))

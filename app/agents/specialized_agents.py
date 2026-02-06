@@ -1,7 +1,8 @@
 from pydantic_ai.builtin_tools import WebSearchTool
-from pydantic_ai.common_tools.duckduckgo import duckduckgo_search_tool
+from app.agents.tools.search import safe_duckduckgo_search_tool
 from app.agents.base import SubAgent
 import pathlib
+from app.agents.tools.writing import write_pdf
 
 
 root_path = pathlib.Path(__file__).parent.parent
@@ -15,7 +16,7 @@ class OrchestratorAgent(SubAgent):
     def __init__(self) -> None:
         super().__init__(
             name="Orchestrator",
-            model_name="qwen3:4b",
+            model_name="openrouter/free",
             system_prompt=self.system_prompt
         )
 
@@ -26,9 +27,9 @@ class ResearcherAgent(SubAgent):
     def __init__(self) -> None:
         super().__init__(
             name="Researcher",
-            model_name="qwen3:4b",
+            model_name="openrouter/free",
             system_prompt=self.system_prompt,
-            tools=[duckduckgo_search_tool()]
+            tools=[safe_duckduckgo_search_tool()]
         )
         
     
@@ -39,8 +40,9 @@ class WriterAgent(SubAgent):
     def __init__(self) -> None:
         super().__init__(
             name="Writer",
-            model_name="qwen3:4b",
-            system_prompt=self.system_prompt
+            model_name="openrouter/free",
+            system_prompt=self.system_prompt,
+            tools=[write_pdf]
         )
 
 class CritiqueAgent(SubAgent):
@@ -50,6 +52,6 @@ class CritiqueAgent(SubAgent):
     def __init__(self) -> None:
         super().__init__(
             name="Critique",
-            model_name="qwen3:4b",
+            model_name="openrouter/free",
             system_prompt=self.system_prompt
         )

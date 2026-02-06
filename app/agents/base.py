@@ -1,7 +1,10 @@
 from pydantic_ai import RunContext
 from pydantic_ai import Agent
 from pydantic_ai.models.openai import OpenAIResponsesModel
+from pydantic_ai.models.openrouter import OpenRouterModel
+from pydantic_ai.providers.openrouter import OpenRouterProvider
 from pydantic_ai.providers.ollama import OllamaProvider
+from app.core.config import settings
 
 class BaseAgent:
 
@@ -13,10 +16,10 @@ class BaseAgent:
         
 
     def _setup_agent(self, tools):
-        model = OpenAIResponsesModel(
+        model = OpenRouterModel(
             model_name=self.model_name,
-            provider=OllamaProvider(
-                base_url="http://localhost:11434/v1"
+            provider=OpenRouterProvider(
+                api_key=settings.OPEN_ROUTER_API_KEY
             )
         )
 
